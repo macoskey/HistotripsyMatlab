@@ -1,0 +1,3 @@
+function fig
+figure;
+end
