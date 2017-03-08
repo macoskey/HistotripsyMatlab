@@ -1,4 +1,4 @@
-Do these things to start using if you are new to the lab:
+Do these things to start using:
 Windows:
 1.  Start Powershell
 2.  enter: iex (new-object net.webclient).downloadstring('https://get.scoop.sh')
