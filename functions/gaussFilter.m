@@ -1,16 +1,18 @@
 function filt = gaussFilter(cf,gw,f,amp)
 % Simple Gaussian filter function for filtering 1D signals.
+% J. Macoskey
+% 8.7.17
 
 % cf    = filter center frequency
 % gw    = Gaussian width
 % f     = input frequency vector that matches function to filter
 % amp   = Gaussian amplitude (default is 1)
 
-if varargin < 4
+if nargin < 4
     amp = 1;
 end
 
 tmp = amp.*exp(-(f-cf).^2./(2.*gw.^2));
-filt = tmp + filplr(tmp);
+filt = tmp + fliplr(tmp);
 
 end
