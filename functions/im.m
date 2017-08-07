@@ -1,6 +1,6 @@
-% conveniently make grayscale image with colorbar with just two characters!
+% conveniently make image without having to fucking squeeze with just two characters!
 
-function h = im(in)
-h = imagesc(in);
-colormap gray
-colorbar
+function im(in)
+in = squeeze(in);
+imagesc(in);
+

@@ -1,8 +1,8 @@
 
-function addwaitbar(maxamount)
+function addwaitbar(n,maxamount)
 
-h = waitbar(0,'waiting...');
-for n = 1:maxamount
+h = waitbar(0,'processing...');
+while n < maxamount
     waitbar(n/maxamount)
     pause(0.1)
 end
