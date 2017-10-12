@@ -43,7 +43,7 @@ for nf = sampleVec
         tmp = load([files(nx).folder,'\',files(nx).name]);
         data = tmp.C; % need to make this more robust
         
-        %%% Here begins the core of the data analysis %%%
+        % Here begins the core of the data analysis
         ftData = fftshift(fft(data));
         filt = gaussFilter(...
             filterProps(1),...
@@ -54,31 +54,15 @@ for nf = sampleVec
         iftData = real(ifft(fftshift(ftDataFilt)));
         pltData = iftData./max(iftData);
         
-        % optional SVD-based background subtraction. Good for really noisy
-        % signals
         if svdOption
             [u,s,v] = svds(pltData,svdOption);
-            dsvd = u(:,1:r)*s(1:r,1:r)*v(:,1:r)';
-            outData = pltData - dsvd;
+            dsvd = 
         else
             outData = pltData;
         end
-       
-        % next two lines need some serious robustness work
-        g1 = max(find(abs(t - 100) < 0.05));
-        g2 = max(find(abs(t - 250) < 0.05));
         
-        [~,u] = max(outData(g1:g2));
-        tu = t(u+g1);
-        
-        try % im not sure if this works yet
-            [~,ACEeIdx] = max(outData);
-            ACEeTime = t(ACEeIdx);
-            ct(nx,cnt) = tu - ACEeTime;
-        catch
-            ct(nx,cnt) = tu;
-        end
         
     end
-    cnt = cnt + 1;
+    
+    
 end
