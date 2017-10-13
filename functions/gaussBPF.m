@@ -1,5 +1,5 @@
-function filt = gaussFilterHP(cf,gw,f,amp)
-% Simple Gaussian high-pass filter function for filtering 
+function filt = gaussBPF(cf,gw,f,amp)
+% Simple Gaussian band-pass filter function for filtering 
 % 1D signals.
 % J. Macoskey
 % 8.7.17

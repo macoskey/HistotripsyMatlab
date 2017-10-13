@@ -1,5 +1,5 @@
-function filt = gaussFilterBP(cf,gw,f,amp)
-% Simple Gaussian band-pass filter function for filtering 
+function filt = gaussLPF(cf,gw,f,amp)
+% Simple Gaussian low-pass filter function for filtering 
 % 1D signals.
 % J. Macoskey
 % 8.7.17
@@ -15,5 +15,9 @@ end
 
 tmp = amp.*exp(-(f-cf).^2./(2.*gw.^2));
 filt = tmp + fliplr(tmp);
+mid = length(filt)/2;
+[~,p1] = max(filt(1:mid));
+[~,p2] = max(filt(mid:end)); p2 = p2 + mid;
+filt(p1:p2) = 1;
 
 end
