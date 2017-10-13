@@ -21,7 +21,7 @@ function ct = collapseTimeFinder(t,fs,path,sampleVec,npulses,svdOption,filterPro
 % J. Macoskey - 10.12.17
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%% THIS FUNCTION IS CURRENTLY INCOMPLETE %%%%%%
+%%% THIS FUNCTION IS CURRENTLY ALMOST COMPLETE %%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 if nargin < 6
@@ -37,15 +37,15 @@ ct = zeros(npulses,length(sampleVec)); % collapse time output array
 cnt = 1;
 N = length(t);
 f = [-N/2:N/2-1]./N.*fs;
-for nf = sampleVec
+for nf = sampleVec % loops through all treatments/samples
     eval(sprintf('files = dir([path,''\\*%.1d*.mat'']);',nf))
-    for nx = 1:npulses
+    for nx = 1:npulses % loops through all pulses within each treatment
         tmp = load([files(nx).folder,'\',files(nx).name]);
         data = tmp.C; % need to make this more robust
         
         %%% Here begins the core of the data analysis %%%
         ftData = fftshift(fft(data));
-        filt = gaussFilter(...
+        filt = gaussFilter(... % builds custom Gaussian-shaped filter
             filterProps(1),...
             filterProps(2),...
             f,...
