@@ -4,8 +4,8 @@
 
 function manuFig(fignum,name,path)
     if path(end) == '\'
-        saveas(fignum,[path,name,'.png'])
-        saveas(fignum,[path,name,'.fig'])
+        saveas(fignum,[path,'\',name,'.png'])
+        saveas(fignum,[path,'\',name,'.fig'])
     else
         saveas(fignum,[path,'\',name,'.png'])
         saveas(fignum,[path,'\',name,'.fig'])
