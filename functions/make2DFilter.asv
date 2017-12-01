@@ -2,11 +2,8 @@ function filt2D = make2DFilter(inputFilter,f)
 %% Makes 2D filter from 1D filter for filtering 2D signals/images
 % Inputs:
 %   inputFilter = 1D input filter that you want to turn into a 2D filter.
-%       You can use gaussBPF.m (for example) to make a 1D filter
-%   f = your frequency vector, e.g., [-N/2:N/2-1]./N*sample_frequency
+%   You can use gaussBPF.m (for example) to make a 1D
 %
-% Output:
-%   filt2D = the 2D version of the input filter
 %
 % J. Macoskey 2017
 

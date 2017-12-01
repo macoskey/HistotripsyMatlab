@@ -1,15 +1,17 @@
 %% PCA EXAMPLE
 % J. Macoskey - 11.28.17
 
-% Generate random 256-dimensional dataset
-X = rand(128).*0.001;
+% Generate Gaussian distributed zero-mean K-dimensional dataset
+K = 128;
+X = normrnd(0,1,K,K);
 
-% Make two of the dimensions the two principle components
-X(1,:) = X(1,:).*10000;
-X(2,:) = X(2,:).*1000;
+% Increase variance along two random dimensions
+dims = randi([1 K],2,1);
+X(dims(1),:) = X(dims(1),:).*1000;
+X(dims(2),:) = X(dims(2),:).*250;
 
 % Calculate covarince matrix and take eigenvalue decomposition
-C = (1/5).*X*X';
+C = (1/K).*X*X';
 [U,S] = eig(C);
 
 % Construct optimal P with first two eigenvectors of C
@@ -36,7 +38,7 @@ for k = 1:length(X)
     err = norm(P*X-X,'fro').^2;
     plot(k,err,'b.'), hold on
 end
-set(gca,'yscale','log')
+% set(gca,'yscale','log')
 xlabel 'k'
 ylabel 'loss'
 set(gca,'FontSize',16)
