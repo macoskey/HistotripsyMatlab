@@ -4,10 +4,14 @@ function filt = gaussHPF(cf,gw,f,amp)
 % J. Macoskey
 % 8.7.17
 
+% Inputs:
 % cf    = filter center frequency
 % gw    = Gaussian width
 % f     = input frequency vector that matches function to filter
 % amp   = Gaussian amplitude (default is 1)
+%
+% Output:
+% filt  = output 1D signal filter
 
 if nargin < 4
     amp = 1;
