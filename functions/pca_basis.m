@@ -1,5 +1,8 @@
 function Qpca = pca_basis(A)
-%% Assume A is zero mean
+% Generates PCA basis function
+% Inpsired by EECS 551 - University of Michigan
+% J. Macoskey
+% 2016
 
 
 kappa2 = @(y) mean(y.^2,2); %% fourth central cumulant
@@ -12,5 +15,5 @@ for idx = 2 : size(A,1)-1,
 end
 [Qpca,~] = qr(Xpca);
 
-%% Alternately 
-%% [Qpca,~,~] = svd(A,'econ');
+% Alternately 
+% [Qpca,~,~] = svd(A,'econ');
