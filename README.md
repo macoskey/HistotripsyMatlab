@@ -1,3 +1,20 @@
+===========================================================
+
+Image-Guided Ultrasound Therapy Laboratory Python Functions
+		 UNIVERSITY OF MICHIGAN
+
+===========================================================
+
+Created by: Jonathan Macoskey
+First published: 2016
+
+This library contains a set of useful functions that have
+either been developed or acquired by the Image-Guided
+Ultrasound Therapy Lab (a.k.a. Histotripsy Lab) at the 
+University of Michigan Department of Biomedical 
+Engineering. All functions in this repo are intended to be
+used with Matlab.
+
 Do these things to start using if you are new to the lab:
 Windows:
 1.  Start Powershell
@@ -13,8 +30,8 @@ After, do this on either Windows or Mac:
 1.  make a github account with your umich email
 2.  go to powershell/terminal and type "git config --global.name "yourname""
 and "git config --global user.email "uniqname@umich.edu"
-3.  Go to your MATLAB directory, e.g., C:/users/labuser/Documents/MATLAB
+3.  Go to your MATLAB directory, e.g., ~/Documents/MATLAB
 4.  Make new directory for shared files, e.g., type "mkdir public"
 5.  cd ~/public
 6.  type "git clone https://github.com/macoskey/histotripsy_matlab.git"
-7.  make sure these things are in your MATLAB path
+7.  make sure these things are in your MATLAB path (type "pathtool" in Matlab)
