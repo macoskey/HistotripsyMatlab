@@ -11,22 +11,27 @@ University of Michigan Department of Biomedical
 Engineering. All functions in this repo are intended to be
 used with Matlab.
 
-Do these things to start using if you are new to the lab:
-Windows:
+#### Do these things to start using if you are new to the lab:
+**Windows:** <br />
 Start Powershell and enter the following commands
 ```
 iex (new-object net.webclient).downloadstring('https://get.scoop.sh')
 scoop install git
 ```
-
-Mac:
+**Mac:** <br />
 Start terminal and enter the following commands:
 ```
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew install git
 ```
+**Linux:**<br />
+Start terminal and enter the following commands:
+``` 
+sudo apt-get update
+sudo apt-get install git 
+```
 
-After, do this on either Windows or Mac:
+**After, installing git, do the following:**
 1.  make a github account with your umich email
 2.  go to powershell/terminal and type
 ```
