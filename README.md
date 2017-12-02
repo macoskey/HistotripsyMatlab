@@ -22,9 +22,9 @@ Windows:
 3.  type: scoop install git
 
 Mac:
-1.  Start terminal
-2.  enter: /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-3.  type: brew install git
+1.  Start terminal and enter the following 
+2.  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+3.  brew install git
 
 After, do this on either Windows or Mac:
 1.  make a github account with your umich email
