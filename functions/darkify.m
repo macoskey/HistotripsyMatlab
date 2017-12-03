@@ -9,7 +9,7 @@ function darkify(figNum,colors)
 %   figNum = number of the figure you want to darkify
 %   colors = 1 or 0 - determines if you want to change line colors
 
-COLORORDER = [1 1 1;1 0 0;0 1 0;0.8 0.8 0.8;1 1 0;0 0 1];
+COLORORDER = [1 1 1;1 0 0;0 1 0;0.43 0.67 1;0.8 0.8 0.8;1 1 0;0 0 1];
 
 set(figNum,'color',[0.1 0.1 0.1])
 set(gca,'XColor','w')
@@ -23,10 +23,13 @@ set(gca,'FontSize',16)
 set(gca,'xlim',xlims)
 set(gca,'ylim',ylims)
 set(gca,'LineWidth',1.5)
+fig = gcf;
+fig.InvertHardcopy = 'off';
 
 if(colors)
     hline = findobj(gcf,'type','line');
     for n = 1:length(hline)
+        set(hline(n),'LineWidth',1.5)
         try
             set(hline(n),'Color',COLORORDER(mod(n,size(COLORORDER,1)),:));
         catch
