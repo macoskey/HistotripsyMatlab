@@ -14,6 +14,7 @@ COLORORDER = [1 1 1;1 0 0;0 1 0;0.43 0.67 1;0.8 0.8 0.8;1 1 0;0 0 1];
 set(figNum,'color',[0.1 0.1 0.1])
 set(gca,'XColor','w')
 set(gca,'YColor','w')
+set(gca,'ZColor','w')
 set(gca,'GridColor','w')
 set(gca,'Color',[0.25 0.25 0.25])
 set(gca,'ColorOrder',COLORORDER)
