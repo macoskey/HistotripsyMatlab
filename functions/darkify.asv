@@ -15,7 +15,7 @@ t.Color = 'white';
 l = get(gca,'Legend');
 
 set(l,'Color','k')
-set(l,'TextColor',[1 1 1]);
+set(l,'TextColor',[1 1 1];
 set(figNum,'color',[0.1 0.1 0.1])
 set(gca,'XColor','w')
 set(gca,'YColor','w')
