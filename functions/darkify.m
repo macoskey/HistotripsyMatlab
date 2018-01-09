@@ -10,7 +10,8 @@ function darkify(figNum,colors)
 %   colors = 1 or 0 - determines if you want to change line colors
 
 COLORORDER = [1 1 1;1 0 0;0 1 0;0.43 0.67 1;0.8 0.8 0.8;1 1 0;0 0 1];
-
+t = get(gca,'Title');
+t.Color = 'white';
 set(figNum,'color',[0.1 0.1 0.1])
 set(gca,'XColor','w')
 set(gca,'YColor','w')
