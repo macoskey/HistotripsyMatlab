@@ -3,7 +3,8 @@ function darkify(figNum,colors)
 % both pleasing to the eye and much cooler looking.
 % 
 % Jonathan Macoskey
-% 12.2.17
+% Created: 12.2.17
+% Last edited: 1.9.18
 %
 % Input:
 %   figNum = number of the figure you want to darkify
