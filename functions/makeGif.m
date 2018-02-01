@@ -1,4 +1,4 @@
-function makeGif(imdata,filename,cmap,path)
+function makeGif(imdata,filename,cmap,extension,path)
 % Makes a gif from a series of 2D images
 % 
 % Jonathan Macoskey
@@ -17,10 +17,14 @@ if nargin < 3
 end
 
 if nargin < 4
+    extension = 'gif';
+end
+
+if nargin < 5
     path = '';
 end
 
-file = [path,filename,'.gif'];
+file = [path,filename,'.',extension];
 N = size(imdata,1);
 M = size(imdata,2);
 nframes = size(imdata,3);
