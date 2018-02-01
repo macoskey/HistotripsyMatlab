@@ -1,4 +1,4 @@
-function makeGif(imdata,filename,cmap,extension,path)
+function makeGif(imdata,filename,cmap,clims,extension,path)
 % Makes a gif from a series of 2D images
 % 
 % Jonathan Macoskey
@@ -12,15 +12,15 @@ function makeGif(imdata,filename,cmap,extension,path)
 %   filename    = name of file (no need to add extension)
 %   path        = path where you'd like to save (optional)
 
-if nargin < 3
+if nargin < 4
     cmap = 'gray';
 end
 
-if nargin < 4
+if nargin < 5
     extension = 'gif';
 end
 
-if nargin < 5
+if nargin < 6
     path = '';
 end
 
@@ -32,6 +32,7 @@ imdata = double(imdata);
 
 % h = figure;
 imagesc(imdata(:,:,1)), axis equal tight, colormap(cmap)
+caxis(clims)
 set(gca,'nextplot','replacechildren','Visible','off')
 f = getframe;
 [im,map] = rgb2ind(f.cdata,512,'nodither');
@@ -39,27 +40,11 @@ im(1,1,1,nframes) = 0;
 for n = 1:nframes
     fprintf('analyzing frame %.0f/%.0f\n',n,nframes)
     imagesc(imdata(:,:,n))
+    caxis(clims)
     f = getframe;
     im(:,:,1,n) = rgb2ind(f.cdata,map,'nodither');
 end
 
 imwrite(im,map,file,'DelayTime',0,'LoopCount',inf)
-
-% for n = 1:nframes
-%     imagesc(imdata(:,:,n)), axis equal tight
-%     colormap(cmap)
-%     drawnow
-%     frame = getframe(h);
-%     im = frame2im(frame);
-%     [imind,cm] = rgb2ind(im,256);
-%     
-%     if n == 1
-%         imwrite(imind,cm,file,'gif','Loopcount',inf);
-%     else
-%         imwrite(imind,cm,file,'gif','WriteMode','append');
-%     end
-% end
-
-
 
 end
