@@ -4,7 +4,7 @@ function darkify(figNum,colors)
 % 
 % Jonathan Macoskey
 % Created: 12.2.17
-% Last edited: 1.9.18
+% Last edited: 2.2.18
 %
 % Input:
 %   figNum = number of the figure you want to darkify
@@ -15,8 +15,10 @@ t = get(gca,'Title');
 t.Color = 'white';
 l = get(gca,'Legend');
 
+figure(figNum)
 set(l,'Color','k')
 set(l,'TextColor',[1 1 1]);
+set(l,'Location','best')
 set(figNum,'color',[0.1 0.1 0.1])
 set(gca,'XColor','w')
 set(gca,'YColor','w')
