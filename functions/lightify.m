@@ -1,4 +1,4 @@
-function lightify(fignum)
+function lightify(fignum,colors)
 % The much anticipated counterpart to "darkify.m"
 % Makes the figure pretty (just not as pretty as darkify) without wasting a
 % bunch of ink
@@ -9,10 +9,16 @@ function lightify(fignum)
 %
 % Input:
 %   figNum = number of the figure you want to darkify
-%   colors = 1 or 0 - determines if you want to change line colors
+%   colors = 1 or 0 - determines if you want to change line colors (not yet
+%       supported)
+%
+% Note: if switching between this and darkify, use clf('reset') before you
+% add anything to that figure to clear formatting. Update later will do
+% this automatically.
 
 
-figure(fignum)
+
+figure(fignum),
 l = get(gca,'Legend');
 set(l,'Location','best')
 grid on
