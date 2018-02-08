@@ -19,7 +19,7 @@ end
 
 tmp = amp.*exp(-(f-cf).^2./(2.*gw.^2));
 filt = tmp + fliplr(tmp);
-mid = length(filt)/2;
+mid = ceil(length(filt)/2);
 [~,p1] = max(filt(1:mid));
 [~,p2] = max(filt(mid:end)); p2 = p2 + mid;
 filt(1:p1) = amp; % set HP to amp
