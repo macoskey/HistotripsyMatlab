@@ -1,4 +1,4 @@
-function nice_errorbar(x,y,err)
+function nice_errorbar(x,y,err,color)
 % Makes a good looking errorbar figure without all the hard work
 % 
 % Jonathan Macoskey
@@ -11,8 +11,11 @@ function nice_errorbar(x,y,err)
 
 e = errorbar(x,y,err);
 e.LineStyle = 'none';
-e.Color = 'k';
-e.CapSize = 10;
-e.Markersize = 10;
+e.Color = color;
+e.CapSize = 8;
+e.Marker = '.';
+e.MarkerSize = 15;
+grid on
+set(gca,'FontSize',18)
 
 end
