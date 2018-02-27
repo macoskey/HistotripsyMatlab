@@ -1,20 +1,15 @@
 function lightify(fignum,colors)
 % The much anticipated counterpart to "darkify.m"
-% Makes the figure pretty (just not as pretty as darkify) without wasting a
-% bunch of ink
+% Makes the figure nice (just not as nice as darkify)
 % 
 % Jonathan Macoskey
 % Created: 2.2.18
-% Last edited: 2.2.18
+% Last edited: 2.27.18
 %
 % Input:
 %   figNum = number of the figure you want to darkify
-%   colors = 1 or 0 - determines if you want to change line colors (not yet
-%       supported)
+%   colors = 1 or 0 - determines if you want to change line colors
 %
-% Note: if switching between this and darkify, use clf('reset') before you
-% add anything to that figure to clear formatting. Update later will do
-% this automatically.
 
 
 COLORORDER = [0.0000    0.4470    0.7410;
