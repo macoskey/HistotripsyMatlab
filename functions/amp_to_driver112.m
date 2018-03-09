@@ -29,5 +29,8 @@ else
     pn = b1(2)*amp_voltage + b1(1);
     pp = b2(2)*amp_voltage + b2(1);
     pk = b3(2)*amp_voltage + b3(1);
+    fprintf('p- = %.2f\n',pn)
+    fprintf('p+ = %.2f\n',pp)
+    fprintf('pk = %.2f\n',pk)
 end
 end
