@@ -3,12 +3,20 @@ function makeMovie(imdata,filename,fr,cmap,clims,path)
 %
 % Jonathan Macoskey
 % Created: 2.1.18
-%
+% Edited: 3.23.18
 %
 % Inputs:
 %   imdata      = image data (N,M,nframes)
 %   filename    = name of file (no need to add extension)
+%   fr          = frame rate
+%   cmap        = colormap (default = gray)
+%   clims       = colormap lims
 %   path        = path where you'd like to save (optional)
+%   
+
+if nargin < 2
+    filename = 'default_movie_filename';
+end
 
 if nargin < 3
     fr = 1/30;
@@ -19,7 +27,7 @@ if nargin < 4
 end
 
 if nargin < 5
-    clims = []
+    clims = [];
 end
 
 if nargin < 6
@@ -31,8 +39,8 @@ M = size(imdata,2);
 nframes = size(imdata,3);
 imdata = double(imdata);
 
-writerObj = VideoWriter(['DS1_movie','.avi']);
-writerObj.FrameRate = 30;
+writerObj = VideoWriter([filename,'.avi']);
+writerObj.FrameRate = fr;
 writerObj.Quality = 100;
 
 open(writerObj)
@@ -43,9 +51,6 @@ for u = 1:nframes
     writeVideo(writerObj,frame)
 end
 close(writerObj)
-
-
-
 
 
 end

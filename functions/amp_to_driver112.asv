@@ -14,7 +14,7 @@ function [pn,pp,pk] = amp_to_driver112(amp_voltage)
 
 load('driver_calib_500kHz_112c.mat')
 for n = 1:length(amp_voltage)
-direct = find(amp_voltage(n) == driver_calib_500kHz_112c(:,1));
+direct = find(amp_voltage == driver_calib_500kHz_112c(:,1));
     if direct
         pn = driver_calib_500kHz_112c(direct,2);
         pp = driver_calib_500kHz_112c(direct,3);
@@ -27,12 +27,11 @@ direct = find(amp_voltage(n) == driver_calib_500kHz_112c(:,1));
         b2 = X\driver_calib_500kHz_112c(begin:end,3);
         b3 = X\driver_calib_500kHz_112c(begin:end,4);
 
-        pn = b1(2)*amp_voltage(n) + b1(1);
-        pp = b2(2)*amp_voltage(n) + b2(1);
-        pk = b3(2)*amp_voltage(n) + b3(1);
+        pn = b1(2)*amp_voltage + b1(1);
+        pp = b2(2)*amp_voltage + b2(1);
+        pk = b3(2)*amp_voltage + b3(1);
         fprintf('p- = %.2f\n',pn)
         fprintf('p+ = %.2f\n',pp)
         fprintf('pk = %.2f\n',pk)
-        fprintf('----\n')
     end
 end
