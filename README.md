@@ -25,7 +25,7 @@ Start terminal and enter the following commands:
 brew install git
 ```
 **Linux:**<br />
-Start terminal and enter the following commands:
+Hopefully if you're using Linux then you already have the useful bits setup, but if not, start terminal and enter the following commands:
 ``` 
 sudo apt-get update
 sudo apt-get install git 
