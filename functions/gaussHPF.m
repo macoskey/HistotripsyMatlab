@@ -22,7 +22,7 @@ filt = tmp + fliplr(tmp);
 mid = ceil(length(filt)/2);
 [~,p1] = max(filt(1:mid));
 [~,p2] = max(filt(mid:end)); p2 = p2 + mid;
-filt(1:p1) = amp; % set HP to amp
-filt(p2:end) = amp;
+filt(1:round(p1)) = amp; % set HP to amp
+filt(round(p2):end) = amp;
 
 end
