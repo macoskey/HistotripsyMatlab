@@ -1,13 +1,36 @@
 % Saves figure as both png and fig without all the hassle
 % J. Macoskey
-% 10.5.17
+% Created: 10.5.17
+% Updated 4.30.18
 
-function manuFig(fignum,name,path)
-    if path(end) == '\'
-        saveas(fignum,[path,name,'.png'])
-        saveas(fignum,[path,name,'.fig'])
+% Save_option = 1: uses imwrite instead of saveas
+
+function manuFig(fignum, name, path, save_option)
+    if nargin < 4
+        save_option = 0;
     else
-        saveas(fignum,[path,'\',name,'.png'])
-        saveas(fignum,[path,'\',name,'.fig'])
+        save_option = 0; % IMWRITE NEEDS A REWRITE
+    end
+    if ispc
+        delim = '\';
+    else
+        delim = '/';
+    end
+    if path(end) == delim
+        if save_option
+            imwrite(fignum,[path,name,'.png'])
+            saveas(fignum,[path,name,'.fig'])
+        else
+            saveas(fignum,[path,name,'.png'])
+            saveas(fignum,[path,name,'.fig'])
+        end
+    else
+        if save_option
+            imwrite(fignum,[path,delim,name,'.png'])
+            saveas(fignum,[path,delim,name,'.fig'])
+        else
+            saveas(fignum,[path,delim,name,'.png'])
+            saveas(fignum,[path,delim,name,'.fig'])
+        end
     end
 end
