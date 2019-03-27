@@ -1,4 +1,4 @@
-function lightify(fignum,colors)
+function lightify(fignum,colors,lwoption)
 % The much anticipated counterpart to "darkify.m"
 % Makes the figure nice (just not as nice as darkify)
 % 
@@ -10,7 +10,9 @@ function lightify(fignum,colors)
 %   figNum = number of the figure you want to darkify
 %   colors = 1 or 0 - determines if you want to change line colors
 %
-
+if nargin < 3
+    lwoption = 1;
+end
 
 COLORORDER = [0.8000    0.0000    0.0000;
               0.1000    0.1000    0.1000;
@@ -42,7 +44,9 @@ set(gca,'GridColor','k')
 
 hline = findobj(gcf,'type','line');
 for n = 1:length(hline)
-    set(hline(n),'LineWidth',2.0)
+    if lwoption
+        set(hline(n),'LineWidth',2.0)
+    end
     if(colors)
         try
             set(hline(n),'Color',COLORORDER(mod(n,size(COLORORDER,1)),:));
